@@ -50,6 +50,7 @@ def manifix_sdist_command(original_command=None, known_excludes=None, callback=N
 
 
 class DefaultManifixSdistCommand(Command):
+    """A manifix command that calls the registered sdist internally"""
     user_options = []
 
     def initialize_options(self):
