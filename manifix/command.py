@@ -42,9 +42,9 @@ def manifix_sdist_command(original_command=None, known_excludes=None, callback=N
 
         def make_distribution(self):
             ret = callback(self.filelist, known_excludes=self.known_excludes)
+            self.archive_files = []
             if ret:
                 raise RuntimeError('Manifix detected some errors, see output for details')
-            self.archive_files = []
 
     return ManifixSdistCommand
 
@@ -68,9 +68,9 @@ class DefaultManifixSdistCommand(Command):
 
         def make_distribution(this):
             ret = check_filelist(this.filelist, known_excludes=self.known_excludes)
+            this.archive_files = []
             if ret:
                 raise RuntimeError('Manifix detected some errors, see output for details')
-            this.archive_files = []
 
         import types
         sdist.make_distribution = types.MethodType(make_distribution, sdist)
