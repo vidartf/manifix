@@ -8,8 +8,8 @@ from __future__ import print_function
 
 import os
 
-from . import log
-from .utils import expand_globs
+from globmatch import glob_match
+
 
 def check_dirs(source_dir, build_dir, known_excludes=None):
     """Run a check of a generated package manifest.
@@ -49,7 +49,7 @@ def check_iterables(source, dist, known_excludes=None):
     Any extra files in dist will be reported unconditionally, while any extra
     files in source will be reported unless it matches a glob in known_excludes.
 
-    A report is logged to .log.error.
+    A report is made using print().
 
     Returns:
         A bitfield value with the following values:
@@ -59,16 +59,15 @@ def check_iterables(source, dist, known_excludes=None):
     """
     source = set(source)
     dist = set(dist)
-    excludes = set(expand_globs(known_excludes))
 
     retval = 0
 
     for missing in dist - source:
         retval |= 1
-        log.error('Missing file: %r', missing)
+        print('Missing file: %r' % missing)
 
-    for extra in source - dist - excludes:
+    for extra in filter(lambda x: not glob_match(x, known_excludes), source - dist):
         retval |= 2
-        log.error('Extra file: %r', extra)
+        print('Extra file: %r' % extra)
 
     return retval

@@ -4,4 +4,4 @@
 # Copyright (c) Simula Research Laboratory.
 # Distributed under the terms of the Modified BSD License.
 
-import * from .check
+from .check import *
