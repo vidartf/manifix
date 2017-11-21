@@ -1,9 +1,6 @@
 
 # [manifix](https://github.com/vidartf/manifix) - Checking package manifest
 
-[![Build Status](https://travis-ci.org/vidartf/manifix.svg?branch=master)](https://travis-ci.org/vidartf/manifix)
-[![codecov.io](https://codecov.io/github/vidartf/manifix/coverage.svg?branch=master)](https://codecov.io/github/vidartf/manifix?branch=master)
-
 `manifix` provides a setuptools/distutils command for checking the manifest of
 a package. When run, it will compare the files included in the manifest against
 all possible files. Any files not specifically listed as unwanted will trigger
