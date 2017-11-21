@@ -56,7 +56,11 @@ class DefaultManifixSdistCommand(Command):
         self.known_excludes = None
 
     def finalize_options(self):
-        self.known_excludes = self.known_excludes.splitlines() or []
+        if self.known_excludes is None:
+            # Default behaviour to exclude VCS folders
+            self.known_excludes = ['.git', '.hg']
+        else:
+            self.known_excludes = self.known_excludes.splitlines()
         self.known_excludes = [e for e in self.known_excludes if e]
 
     def run(self):

@@ -55,6 +55,10 @@ against the extra files. Any file that matches any of the lines will not be
 reported. See [globmatch](https://github.com/vidartf/globmatch) for further
 details of the glob matcher used.
 
+If no config is specified, it will by default ignore VCS folders
+(['.git', '.hg']), but these will not be added automatically once a value has
+been specified.
+
 
 ## License
 
