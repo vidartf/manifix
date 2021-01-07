@@ -7,6 +7,7 @@
 from __future__ import print_function
 
 import os
+from pathlib import PurePath
 
 from globmatch import glob_match
 
@@ -57,8 +58,8 @@ def check_iterables(source, dist, known_excludes=None):
             |= 1 if extra files were found in dist
             |= 2 if extra files were found in source that were not excluded
     """
-    source = set(source)
-    dist = set(dist)
+    source = set(PurePath(p) for p in source)
+    dist = set(PurePath(p) for p in dist)
 
     retval = 0
 
