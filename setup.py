@@ -27,18 +27,18 @@ setup_args = dict(
     author_email    = 'vidartf@gmail.com',
     license         = 'BSD-3',
     platforms       = "Linux, Mac OS X, Windows",
-    keywords        = ['Interactive', 'Interpreter', 'Shell', 'Web'],
+    keywords        = ['distribution', 'manifest', 'package'],
+    python_requires = '>=3.6',
     classifiers     = [
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )
 
@@ -46,7 +46,6 @@ setup_args = dict(
 setuptools_args = {}
 install_requires = setuptools_args['install_requires'] = [
     'globmatch',
-    'six',
     'setuptools',
 ]
 
