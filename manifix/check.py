@@ -65,10 +65,10 @@ def check_iterables(source, dist, known_excludes=None):
 
     for missing in dist - source:
         retval |= 1
-        print('Missing file: %r' % missing)
+        print('Missing file: %r' % str(missing))
 
     for extra in filter(lambda x: not glob_match(x, known_excludes), source - dist):
         retval |= 2
-        print('Extra file: %r' % extra)
+        print('Extra file: %r' % str(extra))
 
     return retval
